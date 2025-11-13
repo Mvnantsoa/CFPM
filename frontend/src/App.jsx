@@ -3,10 +3,9 @@ import logo from "../src/assets/logo.png";
 import programmation from "../src/assets/programmation.jpg";
 import langue from "../src/assets/langue.jpg";
 import bur from "../src/assets/bureautique.jpg";
-import { MdLocationOn, MdPhone, MdEmail, MdAccessTime, MdWarning, MdEmojiEvents } from "react-icons/md";
+import { MdLocationOn, MdPhone, MdEmail, MdAccessTime, MdWarning, MdEmojiEvents, MdExpandMore, MdExpandLess } from "react-icons/md";
 import { FaMoneyBillWave, FaCertificate, FaTools, FaChalkboardTeacher, FaBookOpen, FaClipboard } from "react-icons/fa";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock } from "react-icons/fa";
-
 
 const formations = [
   {
@@ -15,7 +14,6 @@ const formations = [
     duree: "12 mois",
     image: programmation,
     description: "Maintenance des équipements informatiques, réseaux et systèmes",
-    // niveau: "Niveau 3ème requis"
   },
   {
     id: 2,
@@ -23,7 +21,6 @@ const formations = [
     duree: "3 mois",
     image: bur,
     description: "Installation et maintenance des installations électriques domestiques",
-    // niveau: "Niveau 3ème requis"
   },
   {
     id: 3,
@@ -31,7 +28,6 @@ const formations = [
     duree: "6 mois",
     image: langue,
     description: "Français, Anglais, Chinois Mandarin, Allemand",
-    // niveau: "-----------"
   },
   {
     id: 4,
@@ -39,7 +35,6 @@ const formations = [
     duree: "1 mois",
     image: "https://images.unsplash.com/photo-1548690311-4627e10ba0d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
     description: "Maintenance des équipements informatiques, réseaux et systèmes",
-    // niveau: "Niveau 3ème requis"
   },
   {
     id: 5,
@@ -47,7 +42,6 @@ const formations = [
     duree: "10 mois",
     image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
     description: "Arts culinaires et techniques de restauration",
-    // niveau: "Niveau 3ème requis"
   },
   {
     id: 6,
@@ -55,22 +49,95 @@ const formations = [
     duree: "10 mois",
     image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
     description: "Général et informatisé",
-    // niveau: "-------------"
   }
 ];
 
+// Structure hiérarchique des centres
 const centresCFPM = [
   {
-    id: 1,
+    id: "tana",
     nom: "CFPM ANTANANARIVO",
-    adresse: "Lot IVC 145 Alarobia, Anosizato Andrefana",
-    telephone: ["020 22 415 36", "034 05 415 36"],
-    email: "cfpmmada@metfp.gov.mg",
-    horaires: "Lun-Ven: 7h30-16h30, Sam: 8h-12h"
+    type: "ville",
+    isExpanded: false,
+    sousCentres: [
+      {
+        id: "tana-siege",
+        nom: "CFPM IMERINAFOVOANY (Siège)",
+        adresse: "Imerinafovoany, Antananarivo 101",
+        telephone: ["020 22 415 36", "034 05 415 36"],
+        email: "cfpmmada@metfp.gov.mg",
+        horaires: "Lun-Ven: 7h30-16h30, Sam: 8h-12h"
+      },
+      {
+        id: "tana-talatamaty",
+        nom: "CFPM TALATAMATY",
+        adresse: "Talatamaty, Antananarivo",
+        telephone: ["020 22 415 37", "034 05 415 37"],
+        email: "cfpmtalatamaty@metfp.gov.mg",
+        horaires: "Lun-Ven: 7h30-16h30, Sam: 8h-12h"
+      },
+      {
+        id: "tana-ambohimanarina",
+        nom: "CFPM AMBOHIMANARINA",
+        adresse: "Ambohimanarina, Antananarivo",
+        telephone: ["020 22 415 38", "034 05 415 38"],
+        email: "cfpmambohimanarina@metfp.gov.mg",
+        horaires: "Lun-Ven: 7h30-16h30, Sam: 8h-12h"
+      },
+      {
+        id: "tana-sabotsy",
+        nom: "CFPM SABOTSY NAMEHANA",
+        adresse: "Sabotsy Namehana, Antananarivo",
+        telephone: ["020 22 415 39", "034 05 415 39"],
+        email: "cfpmsabotsy@metfp.gov.mg",
+        horaires: "Lun-Ven: 7h30-16h30, Sam: 8h-12h"
+      },
+      {
+        id: "tana-analamahintsy",
+        nom: "CFPM ANALAMAHINTSY",
+        adresse: "Analamahintsy, Antananarivo",
+        telephone: ["020 22 415 40", "034 05 415 40"],
+        email: "cfpmanalamahintsy@metfp.gov.mg",
+        horaires: "Lun-Ven: 7h30-16h30, Sam: 8h-12h"
+      },
+      {
+        id: "tana-ampasapito",
+        nom: "CFPM AMPASAPITO",
+        adresse: "Ampasapito, Antananarivo",
+        telephone: ["020 22 415 41", "034 05 415 41"],
+        email: "cfpmampasapito@metfp.gov.mg",
+        horaires: "Lun-Ven: 7h30-16h30, Sam: 8h-12h"
+      },
+      {
+        id: "tana-ambanidia",
+        nom: "CFPM AMBANIDIA",
+        adresse: "Ambanidia, Antananarivo",
+        telephone: ["020 22 415 42", "034 05 415 42"],
+        email: "cfpmambanidia@metfp.gov.mg",
+        horaires: "Lun-Ven: 7h30-16h30, Sam: 8h-12h"
+      },
+      {
+        id: "tana-mahamasina",
+        nom: "CFPM MAHAMASINA",
+        adresse: "Mahamasina, Antananarivo",
+        telephone: ["020 22 415 43", "034 05 415 43"],
+        email: "cfpmmahamasina@metfp.gov.mg",
+        horaires: "Lun-Ven: 7h30-16h30, Sam: 8h-12h"
+      },
+      {
+        id: "tana-itaosy",
+        nom: "CFPM ITAOSY",
+        adresse: "Itaosy, Antananarivo",
+        telephone: ["020 22 415 44", "034 05 415 44"],
+        email: "cfpmitaosy@metfp.gov.mg",
+        horaires: "Lun-Ven: 7h30-16h30, Sam: 8h-12h"
+      }
+    ]
   },
   {
     id: 2,
     nom: "CFPM TOAMASINA",
+    type: "centre",
     adresse: "Route de Tamatave, Tanamakoa",
     telephone: ["020 53 324 18", "034 01 324 18"],
     email: "cfpmtamatave@metfp.gov.mg",
@@ -79,6 +146,7 @@ const centresCFPM = [
   {
     id: 3,
     nom: "CFPM MAHAJANGA",
+    type: "centre",
     adresse: "Boulevard Poincaré, Route de l'Aéroport",
     telephone: ["020 62 233 47", "034 02 233 47"],
     email: "cfpmmajunga@metfp.gov.mg",
@@ -87,6 +155,7 @@ const centresCFPM = [
   {
     id: 4,
     nom: "CFPM FIANARANTSOA",
+    type: "centre",
     adresse: "Route d'Isoraka, Ambodirano",
     telephone: ["020 75 512 29", "034 03 512 29"],
     email: "cfpmfianar@metfp.gov.mg",
@@ -95,6 +164,7 @@ const centresCFPM = [
   {
     id: 5,
     nom: "CFPM TOLIARA",
+    type: "centre",
     adresse: "Route Nationale 7, Ankilibe",
     telephone: ["020 94 445 63", "034 04 445 63"],
     email: "cfpmtulear@metfp.gov.mg",
@@ -102,10 +172,47 @@ const centresCFPM = [
   },
   {
     id: 6,
-    nom: "CFPM ANTSIRANANA",
+    nom: "CFPM ANTSIRABE",
+    type: "centre",
+    adresse: "Route Nationale 7, Ambatolampy",
+    telephone: ["020 44 567 89", "034 07 567 89"],
+    email: "cfpmantsirabe@metfp.gov.mg",
+    horaires: "Lun-Ven: 7h30-16h30, Sam: 8h-12h"
+  },
+  {
+    id: 7,
+    nom: "CFPM DIEGO",
+    type: "centre",
     adresse: "Boulevard de la Libération",
     telephone: ["020 82 336 54", "034 06 336 54"],
     email: "cfpmdiego@metfp.gov.mg",
+    horaires: "Lun-Ven: 7h30-16h30, Sam: 8h-12h"
+  },
+  {
+    id: 8,
+    nom: "CFPM AMBOSITRA",
+    type: "centre",
+    adresse: "Route d'Fianarantsoa, Ambalavao",
+    telephone: ["020 47 891 23", "034 08 891 23"],
+    email: "cfpmambositra@metfp.gov.mg",
+    horaires: "Lun-Ven: 7h30-16h30, Sam: 8h-12h"
+  },
+  {
+    id: 9,
+    nom: "CFPM AMBATONDRAZAKA",
+    type: "centre",
+    adresse: "Avenue de l'Indépendance",
+    telephone: ["020 54 678 90", "034 09 678 90"],
+    email: "cfpmambatondrazaka@metfp.gov.mg",
+    horaires: "Lun-Ven: 7h30-16h30, Sam: 8h-12h"
+  },
+  {
+    id: 10,
+    nom: "CFPM SAMBAVA",
+    type: "centre",
+    adresse: "Boulevard des Cocotiers",
+    telephone: ["020 88 123 45", "034 10 123 45"],
+    email: "cfpmsambava@metfp.gov.mg",
     horaires: "Lun-Ven: 7h30-16h30, Sam: 8h-12h"
   }
 ];
@@ -135,25 +242,59 @@ const avantages = [
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeCentre, setActiveCentre] = useState(centresCFPM[0]);
+  const [activeCentre, setActiveCentre] = useState(centresCFPM[0].sousCentres[0]);
+  const [centres, setCentres] = useState(centresCFPM);
+  const [isMobileModalOpen, setIsMobileModalOpen] = useState(false);
+
+  const toggleVilleExpansion = (villeId) => {
+    setCentres(prevCentres => 
+      prevCentres.map(centre => 
+        centre.id === villeId 
+          ? { ...centre, isExpanded: !centre.isExpanded }
+          : centre
+      )
+    );
+  };
+
+  const handleCentreClick = (centre) => {
+    if (centre.type === "ville") {
+      toggleVilleExpansion(centre.id);
+      if (!centre.isExpanded && centre.sousCentres && centre.sousCentres.length > 0) {
+        setActiveCentre(centre.sousCentres[0]);
+      }
+    } else {
+      setActiveCentre(centre);
+    }
+    
+    // Sur mobile, ouvrir le modal
+    if (window.innerWidth < 1024) {
+      setIsMobileModalOpen(true);
+    }
+  };
+
+  const handleSousCentreClick = (sousCentre, e) => {
+    e.stopPropagation();
+    setActiveCentre(sousCentre);
+    
+    // Sur mobile, ouvrir le modal
+    if (window.innerWidth < 1024) {
+      setIsMobileModalOpen(true);
+    }
+  };
 
   return (
-    <div className="font-sans scroll-smooth bg-white">
+    <div className="font-sans scroll-smooth bg-white overflow-x-hidden w-full max-w-[100vw]">
       {/* Bandeau Officiel */}
-      <div className="bg-green-600 text-white text-center py-2 text-sm">
+      <div className="bg-green-600 text-white text-center py-2 text-sm w-full overflow-hidden max-w-[100vw]">
         Établissement Privée sous Tutelle du Ministère de l'Enseignement Technique et de la Formation Professionnelle
       </div>
 
       {/* Navigation */}
-      <nav className="sticky top-0 w-full bg-white shadow-lg z-50 border-b border-blue-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="sticky top-0 w-full bg-white shadow-lg z-50 border-b border-blue-200 overflow-hidden max-w-[100vw]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
               <div className=" text-white p-3 rounded-lg mr-4">
-                {/* <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l9-5-9-5-9 5 9 5z" />
-                </svg> */}
                 <img src={logo} alt="logo" className="w-12 h-12 object-contain"/>
               </div>
               <div>
@@ -200,9 +341,9 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="accueil" className="relative bg-gradient-to-r from-blue-800 to-blue-600 text-white py-20 lg:py-32">
+      <section id="accueil" className="relative bg-gradient-to-r from-blue-800 to-blue-600 text-white py-20 lg:py-32 overflow-hidden w-full max-w-[100vw]">
         <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
           <div className="inline-block bg-yellow-400 text-blue-900 px-6 py-2 rounded-full text-lg font-bold mb-8 shadow-lg">
             ⚠️ FORMATIONS - INSCRIPTIONS 2026 EN COURS
           </div>
@@ -219,7 +360,7 @@ function App() {
           <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto mb-8">
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-blue-300">6</div>
+                <div className="text-3xl font-bold text-blue-300">10+</div>
                 <div className="text-lg text-blue-300">CENTRES RÉGIONAUX</div>
               </div>
               <div>
@@ -251,8 +392,8 @@ function App() {
       </section>
 
       {/* Section Avantages */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-white overflow-hidden w-full max-w-[100vw]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <h2 className="text-3xl lg:text-4xl font-bold text-center text-blue-800 mb-12">
             POURQUOI CHOISIR LE CFPM ?
           </h2>
@@ -270,8 +411,8 @@ function App() {
       </section>
 
       {/* Section Formations */}
-      <section id="formations" className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="formations" className="py-16 bg-gray-50 overflow-hidden w-full max-w-[100vw]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-blue-800 mb-4">
               NOS FILIÈRES DE FORMATION
@@ -323,41 +464,89 @@ function App() {
         </div>
       </section>
 
-      {/* Section Centres */}
-      <section id="centres" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Section Centres - Version Optimisée Mobile */}
+      <section id="centres" className="py-16 bg-white overflow-hidden w-full max-w-[100vw]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-blue-800 mb-4">
               NOS CENTRES RÉGIONAUX
             </h2>
             <p className="text-lg text-gray-600">
-              6 centres CFPM répartis dans toutes les régions de Madagascar
+              Plus de 10 centres CFPM répartis dans toutes les régions de Madagascar
             </p>
             <div className="w-24 h-1 bg-yellow-500 mx-auto mt-4"></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          {/* Version Desktop */}
+          <div className="hidden lg:grid lg:grid-cols-2 gap-8">
             {/* Liste des centres */}
-            <div className="space-y-4">
-              {centresCFPM.map((centre) => (
-                <div
-                  key={centre.id}
-                  className={`p-6 rounded-xl cursor-pointer transition duration-300 border-2 ${
-                    activeCentre.id === centre.id 
-                      ? 'border-blue-600 bg-blue-50 shadow-lg' 
-                      : 'border-gray-200 bg-white hover:shadow-md'
-                  }`}
-                  onClick={() => setActiveCentre(centre)}
-                >
-                  <h3 className={`text-xl font-bold mb-2 ${
-                    activeCentre.id === centre.id ? 'text-blue-800' : 'text-gray-800'
-                  }`}>
-                    {centre.nom}
-                  </h3>
-                  <p className="text-gray-600 mb-2">{centre.adresse}</p>
-                  <div className="text-sm text-gray-500">
-                    {centre.horaires}
+            <div className="space-y-2 max-h-[600px] overflow-y-auto">
+              {centres.map((centre) => (
+                <div key={centre.id}>
+                  {/* Centre principal ou Ville */}
+                  <div
+                    className={`p-4 rounded-xl cursor-pointer transition duration-300 border-2 ${
+                      activeCentre.id === centre.id || 
+                      (centre.sousCentres && centre.sousCentres.some(sc => sc.id === activeCentre.id))
+                        ? 'border-blue-600 bg-blue-50 shadow-lg' 
+                        : 'border-gray-200 bg-white hover:shadow-md'
+                    }`}
+                    onClick={() => handleCentreClick(centre)}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className={`text-lg font-bold mb-1 ${
+                          activeCentre.id === centre.id || 
+                          (centre.sousCentres && centre.sousCentres.some(sc => sc.id === activeCentre.id))
+                            ? 'text-blue-800' : 'text-gray-800'
+                        }`}>
+                          {centre.nom}
+                          {centre.type === "ville" && (
+                            <span className="text-sm text-gray-500 ml-2">
+                              ({centre.sousCentres.length} centres)
+                            </span>
+                          )}
+                        </h3>
+                        {centre.type !== "ville" && (
+                          <>
+                            <p className="text-sm text-gray-600 mb-1 truncate">{centre.adresse}</p>
+                            <div className="text-xs text-gray-500">
+                              {centre.horaires}
+                            </div>
+                          </>
+                        )}
+                      </div>
+                      {centre.type === "ville" && (
+                        <div className="text-blue-600">
+                          {centre.isExpanded ? <MdExpandLess size={20} /> : <MdExpandMore size={20} />}
+                        </div>
+                      )}
+                    </div>
                   </div>
+
+                  {/* Sous-centres pour Antananarivo */}
+                  {centre.type === "ville" && centre.isExpanded && (
+                    <div className="ml-6 mt-2 space-y-2 border-l-2 border-blue-200 pl-4">
+                      {centre.sousCentres.map((sousCentre) => (
+                        <div
+                          key={sousCentre.id}
+                          className={`p-3 rounded-lg cursor-pointer transition duration-300 border ${
+                            activeCentre.id === sousCentre.id
+                              ? 'border-blue-500 bg-blue-100 shadow-md' 
+                              : 'border-gray-100 bg-gray-50 hover:shadow-sm'
+                          }`}
+                          onClick={(e) => handleSousCentreClick(sousCentre, e)}
+                        >
+                          <h4 className={`font-semibold text-sm ${
+                            activeCentre.id === sousCentre.id ? 'text-blue-700' : 'text-gray-700'
+                          }`}>
+                            {sousCentre.nom}
+                          </h4>
+                          <p className="text-xs text-gray-600 mt-1 truncate">{sousCentre.adresse}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -369,7 +558,7 @@ function App() {
               <div className="space-y-6">
                 <div>
                   <h4 className="font-bold text-gray-700 mb-2 flex items-center">
-                  <FaMapMarkerAlt className="text-blue-600 mr-2" />
+                    <FaMapMarkerAlt className="text-blue-600 mr-2" />
                     ADRESSE
                   </h4>
                   <p className="text-gray-800">{activeCentre.adresse}</p>
@@ -377,7 +566,7 @@ function App() {
 
                 <div>
                   <h4 className="font-bold text-gray-700 mb-2 flex items-center">
-                  <FaPhoneAlt className="text-blue-600 mr-2" />
+                    <FaPhoneAlt className="text-blue-600 mr-2" />
                     TÉLÉPHONE
                   </h4>
                   {activeCentre.telephone.map((tel, index) => (
@@ -387,7 +576,7 @@ function App() {
 
                 <div>
                   <h4 className="font-bold text-gray-700 mb-2 flex items-center">
-                  <FaEnvelope className="text-blue-600 mr-2" />
+                    <FaEnvelope className="text-blue-600 mr-2" />
                     EMAIL
                   </h4>
                   <p className="text-gray-800">{activeCentre.email}</p>
@@ -395,7 +584,7 @@ function App() {
 
                 <div>
                   <h4 className="font-bold text-gray-700 mb-2 flex items-center">
-                  <FaClock className="text-blue-600 mr-2" />
+                    <FaClock className="text-blue-600 mr-2" />
                     HORAIRES
                   </h4>
                   <p className="text-gray-800">{activeCentre.horaires}</p>
@@ -409,12 +598,184 @@ function App() {
               </div>
             </div>
           </div>
+
+          {/* Version Mobile Optimisée */}
+          <div className="lg:hidden">
+            {/* Liste des centres seule sur mobile */}
+            <div className="space-y-2 mb-8 max-h-[60vh] overflow-y-auto">
+              {centres.map((centre) => (
+                <div key={centre.id}>
+                  <div
+                    className={`p-4 rounded-xl cursor-pointer transition duration-300 border-2 ${
+                      activeCentre.id === centre.id || 
+                      (centre.sousCentres && centre.sousCentres.some(sc => sc.id === activeCentre.id))
+                        ? 'border-blue-600 bg-blue-50 shadow-lg' 
+                        : 'border-gray-200 bg-white hover:shadow-md'
+                    }`}
+                    onClick={() => handleCentreClick(centre)}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <h3 className={`text-lg font-bold mb-1 ${
+                          activeCentre.id === centre.id || 
+                          (centre.sousCentres && centre.sousCentres.some(sc => sc.id === activeCentre.id))
+                            ? 'text-blue-800' : 'text-gray-800'
+                        }`}>
+                          {centre.nom}
+                          {centre.type === "ville" && (
+                            <span className="text-sm text-gray-500 ml-2">
+                              ({centre.sousCentres.length} centres)
+                            </span>
+                          )}
+                        </h3>
+                        {centre.type !== "ville" && (
+                          <>
+                            <p className="text-sm text-gray-600 mb-1 truncate">{centre.adresse}</p>
+                            <div className="text-xs text-gray-500">
+                              {centre.horaires}
+                            </div>
+                          </>
+                        )}
+                      </div>
+                      {centre.type === "ville" && (
+                        <div className="text-blue-600 flex-shrink-0 ml-2">
+                          {centre.isExpanded ? <MdExpandLess size={20} /> : <MdExpandMore size={20} />}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Sous-centres */}
+                  {centre.type === "ville" && centre.isExpanded && (
+                    <div className="ml-4 mt-2 space-y-2 border-l-2 border-blue-200 pl-4">
+                      {centre.sousCentres.map((sousCentre) => (
+                        <div
+                          key={sousCentre.id}
+                          className={`p-3 rounded-lg cursor-pointer transition duration-300 border ${
+                            activeCentre.id === sousCentre.id
+                              ? 'border-blue-500 bg-blue-100 shadow-md' 
+                              : 'border-gray-100 bg-gray-50 hover:shadow-sm'
+                          }`}
+                          onClick={(e) => handleSousCentreClick(sousCentre, e)}
+                        >
+                          <h4 className={`font-semibold text-sm ${
+                            activeCentre.id === sousCentre.id ? 'text-blue-700' : 'text-gray-700'
+                          }`}>
+                            {sousCentre.nom}
+                          </h4>
+                          <p className="text-xs text-gray-600 mt-1 truncate">{sousCentre.adresse}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
+      {/* Modal Mobile pour les détails du centre - Version Plein Écran */}
+      {isMobileModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex flex-col lg:hidden w-full h-full max-w-[100vw] left-0 right-0">
+          {/* En-tête avec fond bleu */}
+          <div className="bg-blue-600 text-white p-4 flex-shrink-0">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-xl font-bold">Détails du Centre</h3>
+                <p className="text-blue-100 text-sm mt-1">{activeCentre.nom}</p>
+              </div>
+              <button
+                onClick={() => setIsMobileModalOpen(false)}
+                className="p-2 rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 transition duration-200"
+              >
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+          {/* Contenu principal */}
+          <div className="flex-1 overflow-y-auto bg-gray-50">
+            <div className="p-4 space-y-4">
+              {/* Carte Adresse */}
+              <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+                <div className="flex items-start space-x-3">
+                  <div className="bg-blue-100 p-3 rounded-full">
+                    <FaMapMarkerAlt className="text-blue-600 text-lg" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-bold text-gray-800 text-lg mb-1">Adresse</h4>
+                    <p className="text-gray-600">{activeCentre.adresse}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Carte Téléphone */}
+              <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+                <div className="flex items-start space-x-3">
+                  <div className="bg-green-100 p-3 rounded-full">
+                    <FaPhoneAlt className="text-green-600 text-lg" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-bold text-gray-800 text-lg mb-2">Téléphone</h4>
+                    {activeCentre.telephone.map((tel, index) => (
+                      <p key={index} className="text-gray-600 text-base mb-1">{tel}</p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Carte Email */}
+              <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+                <div className="flex items-start space-x-3">
+                  <div className="bg-purple-100 p-3 rounded-full">
+                    <FaEnvelope className="text-purple-600 text-lg" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-bold text-gray-800 text-lg mb-1">Email</h4>
+                    <p className="text-gray-600">{activeCentre.email}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Carte Horaires */}
+              <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+                <div className="flex items-start space-x-3">
+                  <div className="bg-orange-100 p-3 rounded-full">
+                    <FaClock className="text-orange-600 text-lg" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-bold text-gray-800 text-lg mb-1">Horaires d'ouverture</h4>
+                    <p className="text-gray-600">{activeCentre.horaires}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bannière d'information */}
+              <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-2xl p-5 text-center shadow-lg">
+                <p className="text-yellow-900 font-bold text-base">
+                  🚀 <strong>INSCRIPTIONS 2026 EN COURS</strong> 🚀
+                </p>
+                <p className="text-yellow-800 text-sm mt-1">Places limitées - Dépêchez-vous !</p>
+              </div>
+
+              {/* Bouton de retour */}
+              <button
+                onClick={() => setIsMobileModalOpen(false)}
+                className="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 transition duration-300 shadow-lg active:scale-95 mt-4"
+              >
+                ← Retour aux centres
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Section Admission */}
-      <section id="admission" className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="admission" className="py-16 bg-gray-50 overflow-hidden w-full max-w-[100vw]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-blue-800 mb-4">
               CONDITIONS D'ADMISSION 2024
@@ -540,8 +901,8 @@ function App() {
       </section>
 
       {/* Section Contact & Alertes */}
-      <section id="contact" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="py-16 bg-white overflow-hidden w-full max-w-[100vw]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-blue-800 mb-4">
               INFORMATIONS IMPORTANTES
@@ -563,10 +924,6 @@ function App() {
                   </div>
                   <div>
                     <h4 className="font-bold text-blue-800 mb-1">ATTENTION AUX ARNAQUES</h4>
-                    {/* <p className="text-gray-700">
-                      Les formations CFPM sont <strong>ENTIÈREMENT GRATUITES</strong>. 
-                      Aucun frais d'inscription, de dossier ou de formation n'est demandé.
-                    </p> */}
                   </div>
                 </div>
 
@@ -622,16 +979,13 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-blue-900 text-white pt-12 pb-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <footer className="bg-blue-900 text-white pt-12 pb-8 overflow-hidden w-full max-w-[100vw]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center mb-4">
                 <div className="bg-white p-2 rounded-lg mr-3">
-                  {/* <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
-                  </svg> */}
-                   <img src={logo} alt="logo" className="w-12 h-12 object-contain"/>
+                  <img src={logo} alt="logo" className="w-12 h-12 object-contain"/>
                 </div>
                 <div>
                   <div className="text-xl font-bold">CFPM MADAGASCAR</div>
