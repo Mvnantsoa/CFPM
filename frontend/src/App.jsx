@@ -1,53 +1,61 @@
 import React, { useState } from "react";
 import logo from "../src/assets/logo.png";
+import programmation from "../src/assets/programmation.jpg";
+import langue from "../src/assets/langue.jpg";
+import bur from "../src/assets/bureautique.jpg";
+import { MdLocationOn, MdPhone, MdEmail, MdAccessTime, MdWarning, MdEmojiEvents } from "react-icons/md";
+import { FaMoneyBillWave, FaCertificate, FaTools, FaChalkboardTeacher, FaBookOpen, FaClipboard } from "react-icons/fa";
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock } from "react-icons/fa";
+
+
 const formations = [
   {
     id: 1,
-    nom: "MAINTENANCE INFORMATIQUE",
+    nom: "PROGRAMMATION",
     duree: "12 mois",
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    image: programmation,
     description: "Maintenance des équipements informatiques, réseaux et systèmes",
-    niveau: "Niveau 3ème requis"
+    // niveau: "Niveau 3ème requis"
   },
   {
     id: 2,
-    nom: "ELECTRICITE BATIMENT",
-    duree: "12 mois",
-    image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    nom: "INFORAMTIQUE BUREAUTIQUE",
+    duree: "3 mois",
+    image: bur,
     description: "Installation et maintenance des installations électriques domestiques",
-    niveau: "Niveau 3ème requis"
+    // niveau: "Niveau 3ème requis"
   },
   {
     id: 3,
-    nom: "MECANIQUE AUTOMOBILE",
-    duree: "12 mois",
-    image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    description: "Maintenance et réparation des véhicules légers",
-    niveau: "Niveau 3ème requis"
+    nom: "LANGUE",
+    duree: "6 mois",
+    image: langue,
+    description: "Français, Anglais, Chinois Mandarin, Allemand",
+    // niveau: "-----------"
   },
   {
     id: 4,
-    nom: "SOUDAGE",
-    duree: "10 mois",
+    nom: "Maintenance et Dépanage",
+    duree: "1 mois",
     image: "https://images.unsplash.com/photo-1548690311-4627e10ba0d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    description: "Techniques de soudage ARC, MIG/MAG et oxycoupage",
-    niveau: "Niveau 3ème requis"
+    description: "Maintenance des équipements informatiques, réseaux et systèmes",
+    // niveau: "Niveau 3ème requis"
   },
   {
     id: 5,
-    nom: "CUISINE & RESTAURATION",
+    nom: "ART CULINAIRES",
     duree: "10 mois",
     image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
     description: "Arts culinaires et techniques de restauration",
-    niveau: "Niveau 3ème requis"
+    // niveau: "Niveau 3ème requis"
   },
   {
     id: 6,
-    nom: "COIFFURE ESTHETIQUE",
+    nom: "COMPTABILITE",
     duree: "10 mois",
     image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    description: "Coiffure mixte, soins esthétiques et beauté",
-    niveau: "Niveau 3ème requis"
+    description: "Général et informatisé",
+    // niveau: "-------------"
   }
 ];
 
@@ -104,22 +112,22 @@ const centresCFPM = [
 
 const avantages = [
   {
-    icon: "💰",
+    icon:<FaMoneyBillWave className="text-5xl text-yellow-500 mx-auto" />,
     title: "FORMATION ABORDABLE",
     description: "Formation entièrement gratuite pour tous les éligibles"
   },
   {
-    icon: "📜",
+    icon: <FaCertificate className="text-5xl text-yellow-500 mx-auto" />,
     title: "CERTIFICAT AGREER PAR L'ETAT",
     description: "Certificat de Qualification Professionnelle reconnu par l'État"
   },
   {
-    icon: "🛠️",
+    icon: <FaTools className="text-5xl text-yellow-500 mx-auto" />,
     title: "PRATIQUE INTENSIVE",
     description: "Formation 70% pratique - 30% théorique"
   },
   {
-    icon: "👨‍🏫",
+    icon: <FaChalkboardTeacher className="text-5xl text-yellow-500 mx-auto" />,
     title: "FORMATEURS EXPERTS",
     description: "Encadrement par des professionnels du métier"
   }
@@ -133,7 +141,7 @@ function App() {
     <div className="font-sans scroll-smooth bg-white">
       {/* Bandeau Officiel */}
       <div className="bg-green-600 text-white text-center py-2 text-sm">
-        📍 Établissement Privée sous Tutelle du Ministère de l'Enseignement Technique et de la Formation Professionnelle
+        Établissement Privée sous Tutelle du Ministère de l'Enseignement Technique et de la Formation Professionnelle
       </div>
 
       {/* Navigation */}
@@ -201,7 +209,7 @@ function App() {
           
           <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
             CENTRE DE FORMATION <br />
-            <span className="text-yellow-300">PROFESSIONNELLE ET MÉTIERS</span>
+            <span className="text-yellow-300">PROFESSIONNELLE MODERNE DE MADAGASCAR</span>
           </h1>
           
           <p className="text-xl lg:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed">
@@ -211,16 +219,16 @@ function App() {
           <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto mb-8">
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-yellow-300">6</div>
-                <div className="text-lg text-yellow-300">CENTRES RÉGIONAUX</div>
+                <div className="text-3xl font-bold text-blue-300">6</div>
+                <div className="text-lg text-blue-300">CENTRES RÉGIONAUX</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-yellow-300">6</div>
-                <div className="text-lg text-yellow-300">FILIÈRES DE FORMATION</div>
+                <div className="text-3xl font-bold text-blue-300">6</div>
+                <div className="text-lg text-blue-300">FILIÈRES DE FORMATION</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-yellow-300">22</div>
-                <div className="text-lg text-yellow-300">ANS D'EXPÉRIENCE</div>
+                <div className="text-3xl font-bold text-blue-300">22</div>
+                <div className="text-lg text-blue-300">ANS D'EXPÉRIENCE</div>
               </div>
             </div>
           </div>
@@ -361,7 +369,7 @@ function App() {
               <div className="space-y-6">
                 <div>
                   <h4 className="font-bold text-gray-700 mb-2 flex items-center">
-                    <span className="text-blue-600 mr-2">📍</span>
+                  <FaMapMarkerAlt className="text-blue-600 mr-2" />
                     ADRESSE
                   </h4>
                   <p className="text-gray-800">{activeCentre.adresse}</p>
@@ -369,7 +377,7 @@ function App() {
 
                 <div>
                   <h4 className="font-bold text-gray-700 mb-2 flex items-center">
-                    <span className="text-blue-600 mr-2">📞</span>
+                  <FaPhoneAlt className="text-blue-600 mr-2" />
                     TÉLÉPHONE
                   </h4>
                   {activeCentre.telephone.map((tel, index) => (
@@ -379,7 +387,7 @@ function App() {
 
                 <div>
                   <h4 className="font-bold text-gray-700 mb-2 flex items-center">
-                    <span className="text-blue-600 mr-2">📧</span>
+                  <FaEnvelope className="text-blue-600 mr-2" />
                     EMAIL
                   </h4>
                   <p className="text-gray-800">{activeCentre.email}</p>
@@ -387,7 +395,7 @@ function App() {
 
                 <div>
                   <h4 className="font-bold text-gray-700 mb-2 flex items-center">
-                    <span className="text-blue-600 mr-2">🕒</span>
+                  <FaClock className="text-blue-600 mr-2" />
                     HORAIRES
                   </h4>
                   <p className="text-gray-800">{activeCentre.horaires}</p>
